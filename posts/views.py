@@ -1,5 +1,8 @@
+from django.contrib.auth.decorators import login_required 
 from django.shortcuts import render 
 from datetime import datetime
+
+
 posts = [
   {
         'title': 'Mont Blanc',
@@ -27,7 +30,64 @@ posts = [
         },
         'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
         'photo': 'https://picsum.photos/500/700/?image=1076',
-    }
+    },
+        {
+        'title': 'Nuevo auditorio',
+        'user': {
+            'name': 'Uriel (thespianartist)',
+            'picture': 'https://picsum.photos/60/60/?image=883'
+        },
+        'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
+        'photo': 'https://picsum.photos/500/700/?image=1076',
+    },
+        {
+        'title': 'Nuevo auditorio',
+        'user': {
+            'name': 'Uriel (thespianartist)',
+            'picture': 'https://picsum.photos/60/60/?image=883'
+        },
+        'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
+        'photo': 'https://picsum.photos/500/700/?image=1076',
+    },
+        {
+        'title': 'Nuevo auditorio',
+        'user': {
+            'name': 'Uriel (thespianartist)',
+            'picture': 'https://picsum.photos/60/60/?image=883'
+        },
+        'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
+        'photo': 'https://picsum.photos/500/700/?image=1076',
+    },
+        {
+        'title': 'Nuevo auditorio',
+        'user': {
+            'name': 'Uriel (thespianartist)',
+            'picture': 'https://picsum.photos/60/60/?image=883'
+        },
+        'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
+        'photo': 'https://picsum.photos/500/700/?image=1076',
+    },
+        {
+        'title': 'Nuevo auditorio',
+        'user': {
+            'name': 'Uriel (thespianartist)',
+            'picture': 'https://picsum.photos/60/60/?image=883'
+        },
+        'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
+        'photo': 'https://picsum.photos/500/700/?image=1076',
+    },
+        {
+        'title': 'Nuevo auditorio',
+        'user': {
+            'name': 'Uriel (thespianartist)',
+            'picture': 'https://picsum.photos/60/60/?image=883'
+        },
+        'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
+        'photo': 'https://picsum.photos/500/700/?image=1076',
+    },
+
 ]
+
+@login_required
 def list_post(request):
     return render(request, 'posts/feed.html', {'posts': posts})

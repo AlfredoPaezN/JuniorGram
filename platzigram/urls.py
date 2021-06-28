@@ -10,12 +10,12 @@ from users import views as users_views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('hello-world/', local_views.hello_world ),
-    path('sorted/', local_views.hi),
-    path('hi/<str:name>/<int:age>/', local_views.say_hi),
+    path('hello-world/', local_views.hello_world, name= 'hello_world'),
+    path('sorted/', local_views.hi, name= 'sorted'),
+    path('hi/<str:name>/<int:age>/', local_views.say_hi, name='hi'),
 
-    path('posts/', posts_views.list_post),
+    path('posts/', posts_views.list_post, name='feed'),
 
-    path('users/login', users_views.login_view),
+    path('accounts/login', users_views.login_view, name='login'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
