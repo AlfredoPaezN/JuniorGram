@@ -44,3 +44,6 @@ html, body {
     background: #fff;
 }
 
+.hide-content {
+    display: none;
+}
