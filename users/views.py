@@ -5,9 +5,11 @@ from django.contrib.auth.models import User
 from users.models import Profile
 from django.db.utils import IntegrityError
 
+
 @login_required
 def update_profile(request):
     return render(request, 'users/update_profile.html')
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -21,6 +23,7 @@ def login_view(request):
             return render(request, 'users/login.html', {'error': 'Invalid username or password'})
 
     return render(request, 'users/login.html')
+
 
 def signup(request):
     """Sign up view."""
@@ -45,11 +48,16 @@ def signup(request):
         user.email = request.POST['email']
         user.save()
 
-        user.profile.profile_picture = request.POST.get('profile_picture')
-        user.profile.profile_biography = request.POST.get('profile_biography')
-        user.profile.save()
+        profile = Profile()
+        profile.user=user
+        profile.picture = request.FILES['profile_picture']
+        profile.biography = request.POST.get('profile_biography')
+        profile.save()
 
-        user.profile = Profile
+        print(request.POST)
+        print(request.FILES)
+
+        user.profile = profile
         user.save()
         return redirect('login')
 

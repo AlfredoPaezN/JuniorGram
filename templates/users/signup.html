@@ -10,7 +10,7 @@
         <p class="alert alert-danger"> {{ error }} </p>
     {% endif %}
     <h1>Sign up!</h1><br>
-    <form action='{% url "signup" %}' method="POST">
+    <form action='{% url "signup" %}' method="POST" enctype="multipart/form-data">
         {% csrf_token %}
             <div id="step-one">
                 <div class="form-group">
