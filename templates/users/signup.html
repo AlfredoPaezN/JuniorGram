@@ -1,0 +1,65 @@
+{% extends 'users/base.html'%}
+
+{% block head_content %}
+<title>JuniorGram sign up</title>
+{% endblock %}
+
+{% block container %}
+
+    {% if error%}
+        <p class="alert alert-danger"> {{ error }} </p>
+    {% endif %}
+    <h1>Sign up!</h1><br>
+    <form action='{% url "signup" %}' method="POST">
+        {% csrf_token %}
+            <div id="step-one">
+                <div class="form-group">
+                    <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">@</div>
+                      </div>
+                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username" name='username'>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <input class="form-control" type='password' placeholder='Password' name='passwd' required='true' />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type='password' placeholder='Password Confirmation' name='passwd_confirmation' required='true' />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type='text' placeholder='First name' name='first_name' required='true' />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type='text' placeholder='Last name' name='last_name' required='true' />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type='email' placeholder='Email address' name='email' required='true' />
+                </div>
+
+            </div>
+            <div class='hide-content' id='step-two'>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputGroupFile01" accept=".jpg, .png, .jpeg" name='profile_picture'>
+                      <label class="custom-file-label" for="inputGroupFile01">Choose a profile picture.</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input class="form-control" type='text' placeholder='Biography' name='profile_biography' required='true' />
+                </div>
+
+
+            </div>
+
+        <button class="btn btn-primary btn-block" id="btn-next" >Next</button>
+        <button class="btn btn-primary btn-block hide-content" id="btn-submit" type="submit">Register now!</button>
+        
+    </form>
+
+{% endblock %}
