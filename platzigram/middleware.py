@@ -15,16 +15,16 @@ class ProfileCompletionMiddleware:
 
     def __call__(self, request):
         """Code to be executed for each request before the view is called."""
+        print(request)
         if not request.user.is_anonymous:
             try:
                 profile = request.user.profile
                 if not profile.picture or not profile.biography:
-                    if request.path not in [reverse('update_profile'), reverse('logout'), reverse('admin')]:
-                        return redirect('update_profile')
-                    return print('Entrando')
+                    if request.path not in [reverse('users:update_profile'), reverse('users:logout')]:
+                        return redirect('users:update_profile')
             except:
                 logout(request)
-                return render(request, 'users/login.html', {'error': 'User has no profile'})
+                return render(request, 'login.html', {'error': 'User has no profile'})
 
         response = self.get_response(request)
         return response

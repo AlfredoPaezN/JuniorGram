@@ -1,14 +1,14 @@
 html, body {
-    background: #fafafa;
+    background: #E1EBEF;
+    background-size: cover;
     height: 100%;
     width: 100%;
     font-family: 'Roboto', sans-serif;
 }
 
 #auth-container {
-    background: #fff;
-    border: 1px solid #e6e6e6;
-    border-radius: 1px;
+    background: linear-gradient(70deg, #E1EBEF, white);
+    border-radius: 10px;
 }
 
 #main-navbar {
@@ -47,3 +47,15 @@ html, body {
 .hide-content {
     display: none;
 }
+
+#media-login{
+    position: relative;
+    left: 100px;
+}
+
+.btn-primary{
+    background-color: red;
+    border: 0ch;
+    color: white;
+}
+
